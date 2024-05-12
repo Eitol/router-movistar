@@ -22,7 +22,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3.9",
     ],
-    packages=["plantuml_creator"],
+    packages=["router_movistar"],
     include_package_data=True,
     install_requires=[
         "requests~=2.31.0",

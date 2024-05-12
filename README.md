@@ -5,7 +5,7 @@ This is a simple client to interact with Movistar routers
 Tested with:
 
 - Askey RFT3505VW
-  ![Python package](docs/router.png)
+  ![Python package](https://raw.githubusercontent.com/Eitol/router-movistar/main/docs/router.png)
 
 
 ## Methods
