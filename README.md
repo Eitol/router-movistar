@@ -10,7 +10,7 @@ Tested with:
 ## Installation
 
 ```bash
-pip install router-movistar
+pip install router_movistar
 ```
 
 ## Methods
