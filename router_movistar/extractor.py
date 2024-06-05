@@ -4,8 +4,8 @@ from typing import Dict, List
 
 import requests
 
-from endpoints import INFO_ENDPOINT, WIFI_5GHZ_ENDPOINT, WIFI_24GHZ_ENDPOINT
-from model import RouterInfo, Device
+from router_movistar.endpoints import INFO_ENDPOINT, WIFI_5GHZ_ENDPOINT, WIFI_24GHZ_ENDPOINT
+from router_movistar.model import RouterInfo, Device
 
 
 class RouterInfoExtractor:

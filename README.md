@@ -7,6 +7,11 @@ Tested with:
 - Askey RFT3505VW
   ![Python package](https://raw.githubusercontent.com/Eitol/router-movistar/main/docs/router.png)
 
+## Installation
+
+```bash
+pip install router-movistar
+```
 
 ## Methods
 
@@ -107,6 +112,8 @@ Reboots the router.
 
 ### Example
 ```python
+from router_movistar.client import Client
+
 password = 'your_password'
 c = Client(password)
 info = c.get_router_info()

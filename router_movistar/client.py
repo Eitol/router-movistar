@@ -5,9 +5,9 @@ from datetime import datetime
 
 import requests
 
-from endpoints import DEFAULT_ROUTER_IP, LOGIN_ENDPOINT
-from extractor import RouterInfoExtractor
-from model import RouterInfo
+from router_movistar.endpoints import DEFAULT_ROUTER_IP, LOGIN_ENDPOINT
+from router_movistar.extractor import RouterInfoExtractor
+from router_movistar.model import RouterInfo
 
 
 class Client:
