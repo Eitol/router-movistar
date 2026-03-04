@@ -22,6 +22,8 @@ class RouterInfoExtractor:
         basic_info = self._set_5ghz_fields(basic_info, html_resp)
         html_resp = self._get_page(self.endpoints_set.WIFI_24GHZ_ENDPOINT)
         basic_info = self._set_24ghz_fields(basic_info, html_resp)
+        html_resp = self._get_page(self.endpoints_set.DEVICE_DATA_INFO)
+        basic_info = self._set_device_data_info(basic_info, html_resp)
         return basic_info
 
     def _get_page(self, endpoint: str) -> str:
@@ -54,8 +56,12 @@ class RouterInfoExtractor:
         wifi_24ghz_info = self._parse_vars_info(html_resp)
         if 'wpaPskKey' in wifi_24ghz_info:
             basic_info.wifi_24ghz_password = wifi_24ghz_info['wpaPskKey']
-        if 'deviceData' in wifi_24ghz_info:
-            json_array = json.loads(wifi_24ghz_info['deviceData'].replace("'", '"'))
+        return basic_info
+
+    def _set_device_data_info(self, basic_info: RouterInfo, html_resp: str) -> RouterInfo:
+        wifi_device_data_info = self._parse_vars_info(html_resp)
+        if 'deviceData' in wifi_device_data_info:
+            json_array = json.loads(wifi_device_data_info['deviceData'].replace("'", '"'))
             for device in json_array:
                 basic_info.devices.append(
                     Device(

@@ -3,4 +3,5 @@ LOGIN_ENDPOINT = '/te_acceso_router.cgi'
 INFO_ENDPOINT = '/te_otras_funcionalidades.html'
 WIFI_5GHZ_ENDPOINT = '/te_wifi_5ghz.html'
 WIFI_24GHZ_ENDPOINT = '/te_wifi.html'
+DEVICE_DATA_INFO = WIFI_24GHZ_ENDPOINT
 REBOOT_ENDPOINT = '/askey_reboot_secret.html'
