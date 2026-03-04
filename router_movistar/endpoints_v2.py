@@ -1,0 +1,7 @@
+DEFAULT_ROUTER_IP = 'http://192.168.1.1'
+LOGIN_ENDPOINT = '/cgi-bin/te_acceso_router.cgi'
+BASE_ENDPOINT = '/'
+INFO_ENDPOINT = '/te_otras_funcionalidades.asp'
+WIFI_5GHZ_ENDPOINT = '/te_wifi_5ghz.asp'
+WIFI_24GHZ_ENDPOINT = '/te_wifi.asp'
+REBOOT_ENDPOINT = '/askey_reboot_secret.html'

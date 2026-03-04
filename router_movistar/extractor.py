@@ -4,31 +4,40 @@ from typing import Dict, List
 
 import requests
 
-from router_movistar.endpoints import INFO_ENDPOINT, WIFI_5GHZ_ENDPOINT, WIFI_24GHZ_ENDPOINT
 from router_movistar.model import RouterInfo, Device
 
+DEBUG = False
 
 class RouterInfoExtractor:
 
-    def __init__(self, router_url: str, session_id: int):
+    def __init__(self, router_url: str, session_id: int, endpoints_set: any):
         self.session_id = session_id
         self.router_url = router_url
+        self.endpoints_set = endpoints_set
 
     def get_router_info(self) -> RouterInfo:
-        html_resp = self._get_page(INFO_ENDPOINT)
+        html_resp = self._get_page(self.endpoints_set.INFO_ENDPOINT)
         basic_info = self._parse_router_info(html_resp)
-        html_resp = self._get_page(WIFI_5GHZ_ENDPOINT)
+        html_resp = self._get_page(self.endpoints_set.WIFI_5GHZ_ENDPOINT)
         basic_info = self._set_5ghz_fields(basic_info, html_resp)
-        html_resp = self._get_page(WIFI_24GHZ_ENDPOINT)
+        html_resp = self._get_page(self.endpoints_set.WIFI_24GHZ_ENDPOINT)
         basic_info = self._set_24ghz_fields(basic_info, html_resp)
         return basic_info
 
     def _get_page(self, endpoint: str) -> str:
         url = f"{self.router_url}{endpoint}"
         headers = {
-            'Cookie': f'sessionID={self.session_id}'
+            'Cookie': self.session_id
         }
+        if DEBUG:
+            print('Request headers ', headers)
+            print('Request GET ' + url)
+
         response = requests.request("GET", url, headers=headers)
+
+        if DEBUG:
+            print(response.text)
+
         return response.text
 
     def _set_5ghz_fields(self, basic_info, html_resp) -> RouterInfo:

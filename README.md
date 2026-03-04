@@ -120,3 +120,13 @@ info = c.get_router_info()
 print(info.model_dump_json(indent=2))
 c.reboot()
 ```
+
+### Example for more recent model, such as RTF8225VW
+from router_movistar.client import Client_V2 as Client
+
+password = 'your_password'
+c = Client(password, '1234')
+info = c.get_router_info()
+print(info.model_dump_json(indent=2))
+# c.reboot()  # TODO: test reboot with this version
+
